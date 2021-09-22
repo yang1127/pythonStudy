@@ -129,6 +129,10 @@ for i in enumerate(my_list):
 # (3, 'd')
 '''
 
+<<<<<<< HEAD
+=======
+'''
+>>>>>>> test-python
 # 字典中比较的是key的大小，min()、max()
 my_dict = {'a': 30, 'b': 20, 'c': 10}
 my_max = max(my_dict)
@@ -136,7 +140,26 @@ print(my_max) # c
 
 my_min = min(my_dict)
 print(my_min) # a
+<<<<<<< HEAD
 
+=======
+'''
+
+# 字典推导式
+# 变量 = {生成字典的规则(key: value) for 临时变量 in xxx}
+my_dict1 = {f'name{i}': i for i in range(5)}
+print(my_dict1)
+# {'name0': 0, 'name1': 1, 'name2': 2, 'name3': 3, 'name4': 4}
+
+my_dict2 = {f'name{i}': i for i in range(2) for j in range(2)}
+print(my_dict2)
+# 字典中key相同，修改数据
+# {'name0': 0, 'name1': 1}}
+
+my_dict3 = {f'name{i}{j}': i for i in range(2) for j in range(2)}
+print(my_dict3)
+# {'name00': 0, 'name01': 0, 'name10': 1, 'name11': 1}
+>>>>>>> test-python
 
 
 

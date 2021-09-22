@@ -232,9 +232,64 @@ list2.sort(key=lambda x: len(x))
 print(list2) # ['a', 'bc', 'def', 'abide']
 '''
 
+<<<<<<< HEAD
 
 
 
+=======
+'''
+# 列表排序中的key - 列表中镶嵌字典
+list1 = [{'name': 'd', 'age': 19},
+        {'name': 'c', 'age': 16},
+        {'name': 'a', 'age': 16},
+        {'name': 'b', 'age': 19}]
+
+# sort(key = lambda 形参：(排序规则1，排序规则2，... ))
+# 当第一个规则形同时，会按照第二个规则排序
+# 先年龄排序，再名字排序
+list1.sort(key=lambda x: (x['age'], x['name']))
+print(list1)
+'''
+
+'''
+# 列表推导式，为了快速生成一个列表
+# 1、变量 = [生成数据的规则 for 临时变量 in xxx]
+# 每循环一次，就会创建一个数据
+my_list1 = [i for i in range(5)]
+print(my_list1)
+# [0, 1, 2, 3, 4]
+
+my_list2 = ['hello' for i in range(5)]
+print(my_list2)
+# ['hello', 'hello', 'hello', 'hello', 'hello']
+
+my_list3 = [f'num{i}' for i in my_list1]
+print(my_list3)
+# ['num0', 'num1', 'num2', 'num3', 'num4']
+
+my_list4 = [i+i for i in range(5)]
+print(my_list4)
+# [0, 2, 4, 6, 8]
+'''
+
+'''
+# 2、变量 = [生成数据的规则 for 临时变量 in xxx if xxx]
+# 每循环一次，并且if条件为True，生成一个数据
+
+my_list1 = [i for i in range(5) if i % 2 == 0]
+print(my_list1)
+# [0, 2, 4]
+'''
+
+'''
+# 3、变量 = [生成数据的规则 for 临时变量 in xxx for j in xxx]
+# 第二个for，每循环一次，生成一个数据
+
+my_list1 = [(i, j) for i in range(3) for j in range(2)]
+print(my_list1)
+# [(0, 0), (0, 1), (1, 0), (1, 1), (2, 0), (2, 1)]
+'''
+>>>>>>> test-python
 
 
 
