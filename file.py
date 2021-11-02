@@ -61,6 +61,7 @@ print(buf) # hello xiao
 
 # 3、关闭文件
 f.close()
+c
 '''
 
 '''
@@ -78,5 +79,65 @@ print(buf)
 # 3、关闭文件
 f.close()
 '''
+
+'''
+# 模拟读取大文件
+# 有规律的文件
+f = open('test1.txt', 'r', encoding='utf-8')
+while True:
+    buf = f.readline()
+    if buf: # if len(buf) > 0, 容器可以直接作为判断条件，容器有内容，为True
+        print(buf, end='')
+    else:
+        # 文件读完
+        break
+f.close()
+
+# 无规律文件
+f = open('test2.txt', 'r', encoding='utf-8')
+while True:
+    buf = f.read(4)
+    if buf: # if len(buf) > 0, 容器可以直接作为判断条件，容器有内容，为True
+        print(buf, end='')
+    else:
+        # 文件读完
+        break
+f.close()
+'''
+
+'''
+# 二进制文件操作
+# encode() 转为二进制
+f = open('test3.txt', 'wb')
+f.write('你好'.encode())
+f.close()
+
+
+f1 = open('test3.txt', 'rb')
+buf = f1.read()
+print(buf)  # 二进制
+print(buf.decode()) # 转为字符串
+f1.close()
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

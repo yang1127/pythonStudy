@@ -1,4 +1,7 @@
-# 1.0版本
+# 2.0版本 - 简单文件版本
+import os
+
+
 def show_menu():
     print("---------------------------")
     print(" 学生管理系统 ")
@@ -140,34 +143,55 @@ def show_all_info():
         print('～～没有学生信息～～')
 
 
-while True:
-    show_menu()
-    opt = input('请输入操作编号：')
-    if opt == '1':
-        # print('1.添加学生信息')
-        insert_student()
-    elif opt == '2':
-        # print('2.删除学生信息')
-        remove_student()
-    elif opt == '3':
-        # print('3.修改学生信息')
-        modify_student()
-    elif opt == '4':
-        # print('4.查询学生信息')
-        find_student()
-    elif opt == '5':
-        # print('5.查看所有学生信息')
-        show_all_info()
-    elif opt == '6':
-        print('已退出该系统，欢迎下次使用～～')
-        break
-    else:
-        print('输入有误，请重新输入')
-        continue
-
-    print("---------------------------")
-    input('～～回车键继续操作～～')
+def load_file():
+    global stu_list
+    if os.path.exists('student.txt'): # 是否存在
+        f = open('student.txt', 'r')
+        global stu_list
+        buf = f.read()
+        if buf: # 是否有内容
+            stu_list = eval(buf)
+        f.close()
 
 
-if __name__ == '__main__':
-    ()
+# 保存
+def save():
+    # 1 打开文件
+    f = open('student.txt', 'w')
+    f.write(str(stu_list))
+    f.close()
+
+
+def main():
+    while True:
+        load_file()
+        show_menu()
+        opt = input('请输入操作编号：')
+        if opt == '1':
+            # print('1.添加学生信息')
+            insert_student()
+        elif opt == '2':
+            # print('2.删除学生信息')
+            remove_student()
+        elif opt == '3':
+            # print('3.修改学生信息')
+            modify_student()
+        elif opt == '4':
+            # print('4.查询学生信息')
+            find_student()
+        elif opt == '5':
+            # print('5.查看所有学生信息')
+            show_all_info()
+        elif opt == '6':
+            print('已退出该系统，欢迎下次使用～～')
+            save()
+            break
+        else:
+            print('输入有误，请重新输入')
+            continue
+
+        print("---------------------------")
+        input('～～回车键继续操作～～')
+
+
+main()
