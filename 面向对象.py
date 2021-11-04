@@ -91,6 +91,7 @@ dog1.play()print(f'dog:{id(dog)}')
 '''
 
 
+
 # 魔法方法
 # 在python的类中，有一类方法，这类方法以两个下划线开头，和两个下划线结尾
 # 且在满足某个特定条件的情况下，会自动调用，这类方法称为魔法方法
@@ -100,6 +101,73 @@ dog1.play()print(f'dog:{id(dog)}')
 # 作用：
 #   1、用来给对象添加属性，给对象属性一个初始值（构造函数）
 #   2、代码的业务需求，每创建一个对象，都需要执行的代码可以写在 __init__ 中
+
+'''
+# 不带参
+class Dog(object):
+    def __init__(self):  # self 是对象
+        print('我是__int__方法，我被调用了')
+        # 对象.属性名 = 属性值
+        self.name = '小狗'
+
+
+# 创建对象
+dog = Dog()
+print(dog.name)
+
+dog1 = Dog()
+print(dog1.name)
+'''
+
+
+# 注意点：如果 __init__ 方法中，有除self之外的形参，那么在创建对象的时候
+# 需要给额外的形参传递实参值 类名(实参)
+
+# 带参
+class Dog(object):
+    def __init__(self, name):  # self 是对象
+        print('我是__int__方法，我被调用了')
+        # 对象.属性名 = 属性值
+        self.name = name
+
+    def play(self):
+        print(f'小狗🐶{self.name}快乐的拆家中...')
+
+
+# 创建对象 类名(实参值)
+dog = Dog('大黄')
+print(dog.name)
+
+dog1 = Dog('小白')
+print(dog1.name)
+
+dog1.play()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
