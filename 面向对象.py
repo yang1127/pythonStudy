@@ -122,7 +122,7 @@ print(dog1.name)
 
 # 注意点：如果 __init__ 方法中，有除self之外的形参，那么在创建对象的时候
 # 需要给额外的形参传递实参值 类名(实参)
-
+'''
 # 带参
 class Dog(object):
     def __init__(self, name):  # self 是对象
@@ -142,6 +142,98 @@ dog1 = Dog('小白')
 print(dog1.name)
 
 dog1.play()
+'''
+
+'''
+# __str__()   
+# 调用时机：
+#   1、print(对象)，会自动调用 __str__ 方法，打印输出的时候结果是 __str__方法的返回值
+#   2、str(对象)，类型转换，将自定义对象转换为字符串时，会自动调用
+# 应用：
+#   1、打印对象的时候，输出一些属性信息
+#   2、需要将对象转为字符串类型的时候
+# 注意点：
+#   方法必须返回一个字符串，只有 self 一个参数
+
+class Dog(object):
+    def __init__(self, name, age):
+        # 添加属性
+        self.name = name
+        self.age = age
+
+
+# 创建对象
+dog = Dog('小白', 24)  # 没有定义str方法，print（对象），默认输出对象的引用地址
+print(dog)
+print(dog.name, dog.age)
+
+str_dog = str(dog)  # 没有定义str方法，类型转换，赋值的也是的引用地址
+print(str_dog)
+
+
+class Dog1(object):
+    def __init__(self, name, age):
+        # 添加属性
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        # 必须返回一个字符串
+        return f"小狗🐶名字{self.name},年龄{self.age}"
+
+
+# 创建对象
+dog = Dog1('小白', 24)
+print(dog)
+
+str_dog = str(dog)
+print(dog)
+'''
+
+
+# __del__() C++中的析构函数
+# 调用时机：
+#   1、对象在内存中被销毁删除的时（引用计数为0）会自动调用 __del__() 方法
+#   2、程序代码运行结束，在程序运行过程中，创建的所有变量的对象都会被删除销毁
+#   3、使用del变量，将这个对象的引用计数变为0，会自动调用__del__() 方法
+# 应用：
+#   对象被删除销毁时，使用__del__()方法
+
+# 引用计数：
+#   python中内存管理的一种机制，是指一块内存有多少个变量在引用
+#   当一个变量引用一块内存的时候，引用计数+1，删除或者不再使用这块内存，引用计数-1
+#   当引用计数为0，这块内存被删除，内存中的数据被销毁
+
+class Dog(object):
+    def __init__(self, name, age):
+        # 添加变量
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return f"我是{self.name}, 年龄{self.age}"
+
+    def __del__(self):
+        print(f"__del__()方法，被调用，{self.name, self.age}被销毁～～")
+
+
+# 创建对象
+dog = Dog('大黄', 24)  # 大黄引用计数为1
+dog1 = dog  # 大黄引用计数为2
+dog2 = dog  # 大黄引用计数为3
+
+print(dog)
+print("第一次删除前")
+del dog
+print("第一次删除后")
+print("第二次删除前")
+del dog1
+print("第二次删除后")
+print("第三次删除前")
+del dog2
+print("第三次删除后")
+
+
 
 
 
