@@ -39,7 +39,6 @@ dog.play()
 my_list = list()
 '''
 
-
 '''
 # 类外部添加和获取对象属性
 class Dog(object):
@@ -90,8 +89,6 @@ dog1.name = '小白'
 dog1.play()print(f'dog:{id(dog)}')
 '''
 
-
-
 # 魔法方法
 # 在python的类中，有一类方法，这类方法以两个下划线开头，和两个下划线结尾
 # 且在满足某个特定条件的情况下，会自动调用，这类方法称为魔法方法
@@ -118,7 +115,6 @@ print(dog.name)
 dog1 = Dog()
 print(dog1.name)
 '''
-
 
 # 注意点：如果 __init__ 方法中，有除self之外的形参，那么在创建对象的时候
 # 需要给额外的形参传递实参值 类名(实参)
@@ -190,7 +186,7 @@ str_dog = str(dog)
 print(dog)
 '''
 
-
+'''
 # __del__() C++中的析构函数
 # 调用时机：
 #   1、对象在内存中被销毁删除的时（引用计数为0）会自动调用 __del__() 方法
@@ -232,81 +228,214 @@ print("第二次删除后")
 print("第三次删除前")
 del dog2
 print("第三次删除后")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+'''
+
+'''
+# 案例分析 - 烤地瓜
+类名：地瓜类 Potato
+属性：
+    状态 status = '生的'
+    烧烤总时间 total_time = 0
+方法：
+    def cook(self, 烧烤总时间)：
+        计算烧烤总时间
+        修改地瓜的状态
+        pass
+    
+    输出信息 __str__()
+    
+    定义属性 __init__()
+'''
+
+'''
+class Potato(object):
+    # 定义
+    def __init__(self):
+        self.status = '生的'
+        self.total_time = 0
+
+    # 方法
+    def cook(self, time):
+        # 计算总时间
+        self.total_time += time
+
+        # 修改地瓜状态
+        if self.total_time < 3:
+            self.status = '生的'
+        elif self.total_time in range(3, 7):
+            self.status = '半生不熟的'
+        elif self.total_time in range(7, 10):
+            self.status = '熟的'
+        else:
+            self.status = '糊了'
+
+    # 输出
+    def __str__(self):
+        return f"地瓜状态是{self.status},烧烤的时间是{self.total_time}"
+
+
+# 创建对象
+potato = Potato()
+print(potato)
+
+potato.cook(3)
+print(potato)
+
+potato.cook(4)
+print(potato)
+'''
+
+'''
+# 案例分析 - 烤地瓜 + 调料版
+类名：地瓜类 Potato
+属性：
+    状态 status = '生的'
+    烧烤总时间 total_time = 0
+    调料 name_list = []
+方法：
+    定义属性 __init__()
+    
+    def cook(self, 烧烤总时间)：
+        计算烧烤总时间
+        修改地瓜的状态
+        pass
+        
+    def add(self, 调料)：
+        pass
+
+    输出信息 __str__()
+
+'''
+
+'''
+class Potato(object):
+    # 定义
+    def __init__(self):
+        self.status = '生的'
+        self.total_time = 0
+        self.name_list = []
+
+    # 方法
+    def cook(self, time):
+        # 计算总时间
+        self.total_time += time
+
+        # 修改地瓜状态
+        if self.total_time < 3:
+            self.status = '生的'
+        elif self.total_time in range(3, 7):
+            self.status = '半生不熟的'
+        elif self.total_time in range(7, 10):
+            self.status = '熟的'
+        else:
+            self.status = '糊了'
+
+    def add(self, name):
+        self.name_list.append(name)
+
+    # 输出
+    def __str__(self):
+        # 去掉列表的中括号
+        # 1、先转化为字符串，再''代替[ 、]
+        # buf_list = str(self.name_list)
+        # buf_list = buf_list.replace('[', '')
+        # buf_list = buf_list.replace(']', '')
+
+        # 2、字符串.join(列表) ，将字符串添加到列表中的每个元素之间，组成新的字符串
+        buf = ','.join(self.name_list)
+
+        # 判断下是否加入调料 - 判断调料是否为空
+        if self.name_list:
+            return f"地瓜状态是{self.status},烧烤的时间是{self.total_time},加入了调料有:{buf}"
+        else:
+            return f"地瓜状态是{self.status},烧烤的时间是{self.total_time},还没有加入调料"
+
+
+# 创建对象
+potato = Potato()
+print(potato)
+
+potato.cook(3)
+potato.add('孜然')
+print(potato)
+
+potato.cook(4)
+potato.add('蜂蜜')
+print(potato)
+'''
+
+'''
+# 案例分析 - 搬家具
+类名：家具类 Furniture
+属性：
+    类型 name
+    面积 area
+方法：
+    定义属性 __init__()
+    输出家具信息 __str__()
+
+------------------------
+类名：房子 House
+属性：
+    地址 address
+    面积 h_area
+    家具列表 add_furniture_list = []
+方法：
+    定义属性 __init__()
+    添加家具 add_furniture_list = []
+    输出家具信息 __str__()
+'''
+
+
+# 家具类
+class Furniture(object):
+    def __init__(self, name, area):
+        self.name = name
+        self.area = area
+
+    def __str__(self):
+        return f"家具是{self.name},其占地面积为{self.area}/m^2"
+
+
+# 房子类
+class House(object):
+    def __init__(self, address, area):
+        self.address = address
+        self.h_area = area
+        self.furniture_list = []
+        self.free_area = area  # 记录剩余面积
+
+    def add_furniture(self, obj_furniture):
+        # 添加家具obj_furniture：家具类的对象
+        if self.free_area > obj_furniture.area:
+            self.furniture_list.append(obj_furniture)
+            # 修改房子剩余面积
+            self.free_area -= obj_furniture.area
+            print(f"家具{obj_furniture.name}添加成功！！")
+        else:
+            print("添加失败，重新换个房子，或者换个小家具叭")
+
+    def __str__(self):
+        # 自定义家具类，将该类的对象添加到列表中（容器），直接打印列表，显示为：自定义对象的引用地址
+        # [家具对象，家具对象，家具对象......]
+        # 转化为 - [家具类，家具类......]
+        if self.furniture_list:
+            buf_list = [obj.name for obj in self.furniture_list]  # obj -> 家具对象
+            return f"房子🏠的地址是{self.address},其占地面积为{self.h_area}/m^2,剩余房屋面积{self.free_area},"\
+                   f"家具有{','.join(buf_list)}"
+        else:
+            return f"房子🏠的地址是{self.address},其占地面积为{self.h_area}/m^2,剩余房屋面积{self.free_area}"
+
+
+# 创建家具对象
+bed = Furniture('双人床', 3)
+print(bed)
+
+# 创建一个房子类对象
+house = House('力度家园', 100)
+print(house)
+house.add_furniture(bed)
+print(house)
 
 
 
