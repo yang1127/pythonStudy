@@ -104,3 +104,53 @@ class XTQ(Dog):
 xtq = XTQ()
 xtq.see_host()
 '''
+
+'''
+# 继承中的init方法
+# 1、定义Dog类
+class Dog(object):
+    def __init__(self, name):
+        self.name = name
+        self.age = 0
+
+    def __str__(self):
+        return f"名字为{self.name},年龄为{self.age}"
+
+
+# 2、定义XTQ类继承Dog类
+class XTQ(Dog):
+    # 子类重写了父类的__init__方法，默认不再调用父类的init方法，需要手动调用父类的init方法
+    def __init__(self, name, color):
+        # 方法二：super(当前类A, self).方法名(参数)
+        super().__init__(name)
+        self.color = color
+
+    def __str__(self):
+        return f"名字为{self.name},年龄为{self.age},毛色为{self.color}"
+
+
+# 3、创建XTQ类对象
+xtq = XTQ('小黑', '红色')
+print(xtq)   # 名字为小黑,年龄为0,毛色为红色
+'''
+
+
+# 多继承：一个类有两个及以上的父类
+# 1、定义Dog类，定义bark、eat的方法
+# 2、定义DDog类，定义play、eat方法
+# 3、定义XTQ类，继承Dog类和DDog类
+class Dog(object):
+    def bark(self):
+        print("汪汪叫🐶～")
+
+    def eat(self):
+        print("吃骨头🦴～")
+
+
+class DDog(object):
+    def play(self):
+        print("玩的很愉快～")
+
+    def eat(self):
+        print("吃两根骨头🦴🦴～")
+
