@@ -97,9 +97,75 @@ Dog.class_name = '哺乳类'
 print(Dog.class_name)
 """
 
+"""
+# 静态方法：使用@staticmethod 装饰的方法，称为静态方法，对参数没有特殊要求，可以有，可以没有
+# 前提：不需要使用实例属性，也不需要使用类属性，可以将这个方法定义为静态方法
+class Dog(object):
+    # 定义类属性，类名
+    class_name = '狗🐶类'
+
+    def __init__(self, name, age):
+        # 定义的都是实例属性
+        self.name = name
+        self.age = age
+
+    def play(self):
+        print(f"小狗{self.name}, 在快乐的玩耍～")
+
+    @staticmethod  # 定义静态方法
+    def show_info():
+        print('这是一个Dog类')
 
 
+# 创建Dog类对象
+dog = Dog('大黄', 2)
+dog.play()
 
+# 静态方法使用
+# 1、对象.方法名()
+dog.show_info()
+
+# 2、类名.方法名()
+Dog.show_info()
+"""
+
+"""
+多态：在需要使用父类对象的地方，也可以传入子类对象，得到不同的结果
+实现步骤：
+1、子类继承父类
+2、子类重写父类中的同名方法
+3、定义一个共同的方法，参数为父类父类，在方法中调用子类和父类同名的方法
+"""
+
+
+# 1、定义Dog类
+class Dog(object):
+    def __init__(self, name):
+        self.name = name
+
+    def play(self):
+        print(f"小狗{self.name}在玩耍～～")
+
+
+# 2、定义XTQ类，继承Dog类
+class XTQ(Dog):
+    # 3、重写play方法
+    def play(self):
+        print(f"小狗{self.name}在吃骨头～～")
+
+
+# 4、定义一个共同的方法
+def play_with_dog(obj_dog):
+    obj_dog.play()
+
+
+# 创建Dog类对象
+dog = Dog('大黄')
+play_with_dog(dog)
+
+# 创建一个XTQ类
+xtq = XTQ('小黑')
+play_with_dog(xtq)
 
 
 
