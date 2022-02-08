@@ -129,8 +129,6 @@ for i in enumerate(my_list):
 # (3, 'd')
 '''
 
-<<<<<<< HEAD
-=======
 '''
 >>>>>>> test-python
 # 字典中比较的是key的大小，min()、max()
@@ -159,7 +157,6 @@ print(my_dict2)
 my_dict3 = {f'name{i}{j}': i for i in range(2) for j in range(2)}
 print(my_dict3)
 # {'name00': 0, 'name01': 0, 'name10': 1, 'name11': 1}
->>>>>>> test-python
 
 
 
