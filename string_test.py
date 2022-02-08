@@ -224,6 +224,7 @@ print('hello world'.rpartition('or')) # ('hello w', 'or', 'ld')
 print('hello world \n haha~ \n xiaoyang'.splitlines()) # ['hello world ', ' haha~ ', ' xiaoyang']
 '''
 
+'''
 # 6.11 判断数字、字母、空格
 # isalpha() - 如果 mystr 所有字符都是字母 则返回 True,否则返回 False
 print('hello world'.isalpha()) # False，有空格
@@ -236,6 +237,6 @@ print('hello world 123'.isalnum()) # False，有空格
 
 # isspace() - 如果 mystr 中只包含空格，则返回 True，否则返回 False
 print('     '.isspace()) # True
-
+'''
 
 

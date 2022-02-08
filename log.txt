@@ -1,0 +1,5 @@
+2022-02-08 18:45:09,131 This is debug message
+2022-02-08 18:45:09,132 This is info message
+2022-02-08 18:45:09,132 This iss warning message
+2022-02-08 18:45:09,132 This is error message
+2022-02-08 18:45:09,132 This is critical message
