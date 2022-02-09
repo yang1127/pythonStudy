@@ -1,0 +1,5 @@
+2022-02-09 11:24:12,252 __main__ DEBUG This is debug message.
+2022-02-09 11:24:12,253 __main__ INFO This is info message
+2022-02-09 11:24:12,253 __main__ WARNING This iss warning message
+2022-02-09 11:24:12,253 __main__ ERROR This is error message
+2022-02-09 11:24:12,253 __main__ CRITICAL This is critical message
