@@ -120,13 +120,58 @@ print(buf.decode()) # 转为字符串
 f1.close()
 '''
 
+'''
+# open() 完整语法格式
+open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+
+# 参数说明
+file: 必需，文件路径（相对或者绝对路径）。
+mode: 可选，文件打开模式
+buffering: 设置缓冲
+encoding: 一般使用utf8
+errors: 报错级别
+newline: 区分换行符
+closefd: 传入的file参数类型
+opener: 设置自定义开启器，开启器的返回值必须是一个打开的文件描述符
+'''
+
+'''
+file 对象：file 对象使用 open 函数来创建，下表列出了 file 对象常用的函数：
 
 
+1、file.close() 关闭文件。关闭后文件不能再进行读写操作。
 
+2、file.flush() 刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件, 而不是被动的等待输出缓冲区写入。
 
+3、file.fileno() 返回一个整型的文件描述符(file descriptor FD 整型), 可以用在如os模块的read方法等一些底层操作上。
 
+4、file.isatty() 如果文件连接到一个终端设备返回 True，否则返回 False。
 
+5、file.next() 返回文件下一行。Python 3 中的 File 对象不支持 next() 方法。
 
+6、file.read([size]) 从文件读取指定的字节数，如果未给定或为负则读取所有。
+
+7、file.readline([size]) 读取整行，包括 "\n" 字符。
+
+8、file.readlines([sizeint]) 读取所有行并返回列表，若给定sizeint>0，返回总和大约为sizeint字节的行, 实际读取值可能比 sizeint 较大, 因为需要填充缓冲区。
+
+9、file.seek(offset[, whence]) 移动文件读取指针到指定位置
+
+10、file.tell() 返回文件当前位置。
+
+11、file.truncate([size]) 从文件的首行首字符开始截断，截断文件为 size 个字符，无 size 表示从当前位置截断；截断之后后面的所有字符被删除，其中 windows 系统下的换行代表2个字符大小。
+
+12、file.write(str) 将字符串写入文件，返回的是写入的字符长度。
+
+13、file.writelines(sequence) 向文件写入一个序列字符串列表，如果需要换行则要自己加入每行的换行符。
+'''
+
+# 由于文件读写时都有可能产生IOError，一旦出错，后面的f.close()就不会调用
+# 所以，为了保证无论是否出错都能正确地关闭文件，可以使用try ... finally来实现
+# 但是每次都try ... finally写太繁琐，所以，Python引入了with语句来自动调用close()方法：
+
+with open('test.txt', 'r') as f:
+    print(f.read())
 
 
 
