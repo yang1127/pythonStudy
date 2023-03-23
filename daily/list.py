@@ -232,11 +232,6 @@ list2.sort(key=lambda x: len(x))
 print(list2) # ['a', 'bc', 'def', 'abide']
 '''
 
-<<<<<<< HEAD
-
-
-
-=======
 '''
 # 列表排序中的key - 列表中镶嵌字典
 list1 = [{'name': 'd', 'age': 19},
@@ -289,7 +284,6 @@ my_list1 = [(i, j) for i in range(3) for j in range(2)]
 print(my_list1)
 # [(0, 0), (0, 1), (1, 0), (1, 1), (2, 0), (2, 1)]
 '''
->>>>>>> test-python
 
 
 
