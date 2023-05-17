@@ -1,7 +1,7 @@
 # -*-coding:utf-8-*-
 import requests
 
-# 封装参数
+# 封装url、header
 class CreateLesson():
     def __init__(self, grade, semester, subject, version, module_type, course_name, course_system):
         self.grade = grade

@@ -12,6 +12,42 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$USER_HOME$/PycharmProjects/leetcode/leetcode/editor/cn/[26]删除有序数组中的重复项.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/PycharmProjects/leetcode/leetcode/editor/cn/doc/content/[26]删除有序数组中的重复项.md" />
+              <option name="path" value="$USER_HOME$/PycharmProjects/leetcode/leetcode/editor/cn/[26]删除有序数组中的重复项.py" />
+              <option name="questionId" value="26" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/PycharmProjects/leetcode/leetcode/editor/cn/[27]移除元素.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/PycharmProjects/leetcode/leetcode/editor/cn/doc/content/[27]移除元素.md" />
+              <option name="path" value="$USER_HOME$/PycharmProjects/leetcode/leetcode/editor/cn/[27]移除元素.py" />
+              <option name="questionId" value="27" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/PycharmProjects/leetcode/leetcode/editor/cn/[4]寻找两个正序数组的中位数.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/PycharmProjects/leetcode/leetcode/editor/cn/doc/content/[4]寻找两个正序数组的中位数.md" />
+              <option name="path" value="$USER_HOME$/PycharmProjects/leetcode/leetcode/editor/cn/[4]寻找两个正序数组的中位数.py" />
+              <option name="questionId" value="4" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/PycharmProjects/leetcode/leetcode/editor/cn/[88]合并两个有序数组.py">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$USER_HOME$/PycharmProjects/leetcode/leetcode/editor/cn/doc/content/[88]合并两个有序数组.md" />
+              <option name="path" value="$USER_HOME$/PycharmProjects/leetcode/leetcode/editor/cn/[88]合并两个有序数组.py" />
+              <option name="questionId" value="88" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
