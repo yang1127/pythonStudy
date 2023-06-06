@@ -1,17 +1,20 @@
 # -*-coding:utf-8-*-
 class singleNode(object):
-    # 单链表节点
+    # 节点
     def __init__(self, item):
-        # 存放数据
+        # 存储元素
         self.item = item
-        # 下一个节点标识
+        # 下一个节点
         self.next = None
 
 
-class singleLinkList(object):
-    # head节点, __私有, 空链表
+class singleCycleLinkList(object):
     def __init__(self, node=None):
+        # node为空
         self.__head = None
+        # node不为空，传入一个node节点，指向下一个
+        if node:
+            node.next = node
 
     # is_empty() 链表是否为空, 只需判断_head为空
     def is_empty(self):
@@ -19,47 +22,68 @@ class singleLinkList(object):
 
     # length() 链表长度
     def length(self):
+        if self.is_empty():
+            return 0
+
         # cur: 游标，记录移动位置
         cur = self.__head
         # count: 记录移动次数，即长度
-        count = 0  # 空链表也包含在内
-        while cur is not None:
+        count = 1  # 从1开始
+        # 只有一个节点时，cur.next == self.__head，即count=1
+        while cur.next != self.__head:
             count += 1
             cur = cur.next  # 向后移动
         return count
 
     # travel() 遍历整个链表
     def travel(self):
+        if self.is_empty():
+            return
+
+        # cur: 游标，记录移动位置
         cur = self.__head
-        while cur is not None:
+        while cur.next != self.__head:
             print(cur.item, end=" ")
             cur = cur.next  # 向后移动
-        print()
+        # 退出循环，cur指向尾节点，尾节点需要再打印下
+        print(cur.item)
 
     # add(item) 链表头部添加元素
     def add(self, item):
         # 创建节点，将元素转为节点
         node = singleNode(item)
-        # 先node的next域，指向头节点，即_head指向的位置
-        node.next = self.__head
-        # 再将链表的头_head指向新节点
-        self.__head = node
+
+        if self.is_empty():
+            self.__head = node
+            node.next = node
+        else:
+            # cur: 游标，记录移动位置
+            cur = self.__head
+            # 找到尾部
+            while cur.next != self.__head:
+                cur = cur.next
+            # 将node节点插入
+            node.next = self.__head
+            self.__head = node
+            cur.next = self.__head
 
     # append(item) 链表尾部添加元素
     def append(self, item):
         # 创建节点，将元素转为节点
         node = singleNode(item)
 
-        # 1、空列表，直接将node放置首位
+        # 1、空列表
         if self.is_empty():
             self.__head = node
-        # 2、不为空，遍历置最后一个节点，下一个节点放置node
+            node.next = node
+        # 2、不为空
         else:
             cur = self.__head
             # 遍历到最后一个节点
-            while cur.next is not None:
+            while cur.next != self.__head:
                 cur = cur.next
-            # 将node给cur.next
+            # 将node.next给self.__head, cur.next指向node
+            node.next = self.__head
             cur.next = node
 
     # insert(pos, item) 指定位置添加元素
@@ -124,26 +148,39 @@ class singleLinkList(object):
 
 
 if __name__ == '__main__':
-    sll = singleLinkList()
+    sll = singleCycleLinkList()
     # 判断是否为空
     print(sll.is_empty())
+
     # 长度
     print(sll.length())
+
     # 前插
     sll.add(9)
+    print(sll.travel())
+
     # 后插
     sll.append(5)
+    print(sll.travel())
     sll.append(2)
+    print(sll.travel())
     sll.append(6)
+    print(sll.travel())
+
     # 指定插入
     sll.insert(-1, -1)
+    print(sll.travel())
     sll.insert(12, 12)
+    print(sll.travel())
     sll.insert(1, 1)
+    print(sll.travel())
+
     # 查找
     print(sll.search(2))
     print(sll.search(77))
     # 遍历
     print(sll.travel())
 
+    # 删除
     sll.remove(6)
     print(sll.travel())
