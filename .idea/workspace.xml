@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8450a010-fdc1-4472-8c52-2ac772a397ab" name="Default Changelist" comment="Default Changelist">
-      <change afterPath="$PROJECT_DIR$/dataStructure/singleCycleLinkList.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tool/xuexiji/a.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tool/xuexiji/b.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tool/xuexiji/test_json.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tool/xuexiji/upgradedata.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataStructure/singleCycleLinkList.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataStructure/singleCycleLinkList.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataStructure/singleLinkList.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataStructure/singleLinkList.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

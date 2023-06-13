@@ -114,36 +114,59 @@ class singleCycleLinkList(object):
 
     # remove(item) 删除节点
     def remove(self, item):
+        if self.is_empty():
+            return False
+
         cur = self.__head
         pre = None
 
-        # 遍历查找:
-        while cur is not None:
+        # 遍历查找
+        while cur.next != self.__head:
             if cur.item == item:
                 # 判断是否为头节点
                 if cur == self.__head:
-                    # 包含只有一个节点
+                    # 头节点
+                    # 找尾节点
+                    rear = self.__head
+                    while rear.next != self.__head:
+                        rear = rear.next
+
+                    # 找到
                     self.__head = cur.next
-                else:  # 包含删除尾部
+                    rear.next = self.__head
+                else:
+                    # 中间节点
                     pre.next = cur.next
-                break  # 删除后跳出循环
+                return  # 删除后退出
             else:
                 pre = cur
                 cur = cur.next
 
-    # search(item) 查找节点是否存在
+        # 退出循环，cur指向尾节点
+        if cur.item == item:
+            if cur == self.__head:
+                # 只有一个节点
+                self.__head = None
+            else:
+                pre.next = cur.next
+
+    # search(self, item) 查找元素
     def search(self, item):
-        # 创建节点，将元素转为节点
-        node = singleNode(item)
+        if self.is_empty():
+            return False
+                
+        # cur游标
         cur = self.__head
 
         # 遍历查找
-        while cur is not None:
+        while cur.next != self.__head:
             if cur.item == item:
                 return True
             else:
                 cur = cur.next
-        # 找不到&链表为空，返回false
+        # 退出循环，指向尾节点
+        if cur.item == item:
+            return True
         return False
 
 
@@ -176,8 +199,11 @@ if __name__ == '__main__':
     print(sll.travel())
 
     # 查找
+    print("------")
     print(sll.search(2))
     print(sll.search(77))
+    print("------")
+
     # 遍历
     print(sll.travel())
 

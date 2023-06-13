@@ -109,8 +109,6 @@ class singleLinkList(object):
 
     # search(item) 查找节点是否存在
     def search(self, item):
-        # 创建节点，将元素转为节点
-        node = singleNode(item)
         cur = self.__head
 
         # 遍历查找
